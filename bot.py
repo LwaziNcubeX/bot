@@ -3,10 +3,17 @@
 main
 """
 import os
+import logging
 from dotenv import load_dotenv
 from telegram.ext import ApplicationBuilder, CommandHandler
 from plugins.commands.start import start_cmd
-from utils.logger import logger
+
+# Configure logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 try:
